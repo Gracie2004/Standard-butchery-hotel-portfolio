@@ -47,26 +47,19 @@ a {
     position: fixed;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 75px;
-
     background: #171717;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     padding: 0 6%;
-
     z-index: 1000;
-
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
 .logo a {
     color: white;
-
     display: flex;
     flex-direction: column;
 }
@@ -100,11 +93,8 @@ a {
 
 .menu-icon {
     display: none;
-
     color: white;
-
     font-size: 25px;
-
     cursor: pointer;
 }
 
@@ -116,17 +106,16 @@ a {
 .home-slider {
     width: 100%;
     height: 650px;
-
     position: relative;
-
     overflow: hidden;
+    background: #111;
 }
 
 .slider-container {
     width: 100%;
     height: 100%;
-
     position: relative;
+    background: #111;
 }
 
 
@@ -134,37 +123,36 @@ a {
 
 .slide {
     position: absolute;
-
     inset: 0;
-
     width: 100%;
     height: 100%;
-
     opacity: 0;
     visibility: hidden;
-
     transition: opacity 0.8s ease;
-
     z-index: 0;
+    background: #111;
 }
 
 .slide.active {
     opacity: 1;
     visibility: visible;
-
     z-index: 1;
 }
 
 
-/* ================= SLIDE IMAGE ================= */
+/* =========================================================
+   HOME SLIDER IMAGES
+   SHOW THE COMPLETE IMAGE
+   DO NOT CROP HEADS OR IMPORTANT PARTS
+========================================================= */
 
 .slide img {
     width: 100%;
     height: 100%;
-
-    object-fit: cover;
-
+    object-fit: contain;
+    object-position: center center;
     display: block;
+    background: #111;
 }
 
 
@@ -172,44 +160,31 @@ a {
 
 .slide-overlay {
     position: absolute;
-
     inset: 0;
-
-    background: rgba(0, 0, 0, 0.40);
-
+    background: rgba(0, 0, 0, 0.25);
     z-index: 2;
 }
 
 
 /* =========================================================
-   CENTER CONTENT BOX
+   SLIDE TEXT
+   TRANSPARENT — NO LARGE BLACK BOX
 ========================================================= */
 
 .slide-content {
     position: absolute;
-
     top: 50%;
     left: 50%;
-
     transform: translate(-50%, -50%);
-
-    width: 75%;
-    max-width: 600px;
-
-    padding: 28px 32px;
-
+    width: 90%;
+    max-width: 700px;
+    padding: 15px 20px;
     text-align: center;
-
-    background: rgba(0, 0, 0, 0.72);
-
-    border: 1px solid rgba(255, 255, 255, 0.20);
-
-    border-radius: 10px;
-
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
     color: #fff;
-
     z-index: 3;
 }
 
@@ -218,18 +193,16 @@ a {
 
 .slide-content span {
     display: block;
-
     margin-bottom: 8px;
-
     color: #d4a017;
-
     font-size: 12px;
-
     font-weight: 700;
-
     letter-spacing: 2px;
-
     text-transform: uppercase;
+
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.95),
+        0 4px 12px rgba(0, 0, 0, 0.85);
 }
 
 
@@ -238,14 +211,15 @@ a {
 .slide-content h1,
 .slide-content h2 {
     margin: 0 0 12px;
-
     color: #fff;
-
     font-size: 38px;
-
     line-height: 1.15;
-
     font-weight: 800;
+
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 1),
+        0 4px 12px rgba(0, 0, 0, 0.9),
+        0 8px 20px rgba(0, 0, 0, 0.7);
 }
 
 
@@ -253,14 +227,14 @@ a {
 
 .slide-content p {
     max-width: 500px;
-
     margin: 0 auto 18px;
-
     color: #fff;
-
     font-size: 15px;
-
     line-height: 1.5;
+
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 1),
+        0 4px 10px rgba(0, 0, 0, 0.9);
 }
 
 
@@ -268,32 +242,24 @@ a {
 
 .slider-btn {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
-
     gap: 8px;
-
     padding: 11px 20px;
-
     background: #d4a017;
-
     color: #fff;
-
     border-radius: 5px;
-
     font-size: 13px;
-
     font-weight: 700;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 
     transition: all 0.3s ease;
 }
 
 .slider-btn:hover {
     background: #b8860b;
-
     color: #fff;
-
     transform: translateY(-2px);
 }
 
@@ -304,28 +270,22 @@ a {
 
 .slider-arrow {
     position: absolute;
-
     top: 50%;
-
     transform: translateY(-50%);
 
     width: 45px;
     height: 45px;
 
     border: none;
-
     border-radius: 50%;
 
     background: rgba(0, 0, 0, 0.70);
-
     color: #fff;
 
     cursor: pointer;
-
     z-index: 10;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -336,7 +296,6 @@ a {
 
 .slider-arrow:hover {
     background: #d4a017;
-
     transform: translateY(-50%) scale(1.08);
 }
 
@@ -355,17 +314,12 @@ a {
 
 .slider-dots {
     position: absolute;
-
     bottom: 20px;
-
     left: 50%;
-
     transform: translateX(-50%);
 
     display: flex;
-
     align-items: center;
-
     gap: 8px;
 
     z-index: 10;
@@ -386,9 +340,7 @@ a {
 
 .dot.active {
     width: 25px;
-
     border-radius: 10px;
-
     background: #d4a017;
 }
 
@@ -399,23 +351,16 @@ a {
 
 .btn {
     display: inline-block;
-
     padding: 13px 28px;
-
     border-radius: 4px;
-
     font-weight: bold;
-
     transition: 0.3s;
-
     border: none;
-
     cursor: pointer;
 }
 
 .primary-btn {
     background: #d4a017;
-
     color: #fff;
 }
 
@@ -425,19 +370,16 @@ a {
 
 .secondary-btn {
     border: 2px solid white;
-
     color: white;
 }
 
 .secondary-btn:hover {
     background: white;
-
     color: #222;
 }
 
 .dark-btn {
     background: #222;
-
     color: white;
 }
 
@@ -452,27 +394,20 @@ a {
 
 .section-heading {
     text-align: center;
-
     max-width: 700px;
-
     margin: 0 auto 50px;
 }
 
 .section-subtitle {
     color: #b8860b;
-
     font-weight: bold;
-
     letter-spacing: 2px;
-
     font-size: 13px;
 }
 
 .section-heading h2 {
     font-size: 38px;
-
     margin: 10px 0 15px;
-
     color: #222;
 }
 
@@ -491,9 +426,7 @@ a {
 
 .about-container {
     display: flex;
-
     align-items: center;
-
     gap: 60px;
 }
 
@@ -504,51 +437,38 @@ a {
 
 .about-image img {
     width: 100%;
-
     height: 480px;
-
     object-fit: cover;
-
     border-radius: 8px;
 }
 
 .about-content h2 {
     font-size: 38px;
-
     color: #222;
-
     margin: 12px 0 20px;
 }
 
 .about-content > p {
     color: #555;
-
     margin-bottom: 15px;
 }
 
 .motto {
     display: flex;
-
     gap: 15px;
-
     padding: 20px;
-
     margin: 25px 0;
-
     background: #f7f7f7;
-
     border-left: 4px solid #d4a017;
 }
 
 .motto > i {
     color: #d4a017;
-
     font-size: 25px;
 }
 
 .motto h3 {
     margin-bottom: 5px;
-
     color: #222;
 }
 
@@ -563,47 +483,36 @@ a {
 
 .features {
     background: #f6f6f6;
-
     padding: 80px 0;
 }
 
 .feature-grid {
     display: grid;
-
     grid-template-columns: repeat(4, 1fr);
-
     gap: 25px;
 }
 
 .feature-card {
     background: white;
-
     padding: 35px 25px;
-
     text-align: center;
-
     border-radius: 8px;
-
     transition: 0.3s;
 }
 
 .feature-card:hover {
     transform: translateY(-8px);
-
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .feature-card i {
     font-size: 38px;
-
     color: #d4a017;
-
     margin-bottom: 18px;
 }
 
 .feature-card h3 {
     color: #222;
-
     margin-bottom: 10px;
 }
 
@@ -622,21 +531,15 @@ a {
 
 .services-grid {
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
     gap: 30px;
 }
 
 .service-card {
     background: #fff;
-
     border-radius: 8px;
-
     overflow: hidden;
-
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-
     transition: 0.3s;
 }
 
@@ -646,9 +549,7 @@ a {
 
 .service-image img {
     width: 100%;
-
     height: 230px;
-
     object-fit: cover;
 }
 
@@ -658,13 +559,11 @@ a {
 
 .service-content i {
     color: #d4a017;
-
     font-size: 28px;
 }
 
 .service-content h3 {
     margin: 12px 0;
-
     color: #222;
 }
 
@@ -679,7 +578,6 @@ a {
 
 .menu {
     padding: 80px 0;
-
     background: #fff;
 }
 
@@ -688,37 +586,27 @@ a {
 
 .menu .section-heading {
     text-align: center;
-
     max-width: 750px;
-
     margin: 0 auto 50px;
 }
 
 .menu .section-subtitle {
     display: inline-block;
-
     font-size: 14px;
-
     font-weight: 700;
-
     letter-spacing: 2px;
-
     text-transform: uppercase;
-
     margin-bottom: 10px;
 }
 
 .menu .section-heading h2 {
     font-size: 38px;
-
     margin-bottom: 15px;
 }
 
 .menu .section-heading p {
     font-size: 16px;
-
     line-height: 1.7;
-
     margin: 0;
 }
 
@@ -727,11 +615,8 @@ a {
 
 .menu-layout {
     display: grid;
-
     grid-template-columns: 1fr 1fr 1fr;
-
     gap: 25px;
-
     align-items: start;
 }
 
@@ -742,13 +627,9 @@ a {
 
 .menu-column {
     background: #fff;
-
     border-radius: 12px;
-
     overflow: hidden;
-
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-
     border: 1px solid #eee;
 }
 
@@ -757,21 +638,15 @@ a {
 
 .menu-photo {
     width: 100%;
-
     height: 190px;
-
     overflow: hidden;
 }
 
 .menu-photo img {
     width: 100%;
-
     height: 100%;
-
     object-fit: cover;
-
     display: block;
-
     transition: transform 0.4s ease;
 }
 
@@ -784,15 +659,12 @@ a {
 
 .menu-heading {
     padding: 22px 25px 10px;
-
     text-align: center;
 }
 
 .menu-heading h3 {
     margin: 0;
-
     font-size: 25px;
-
     font-weight: 700;
 }
 
@@ -801,21 +673,15 @@ a {
 
 .menu-list {
     list-style: none;
-
     padding: 10px 30px 30px;
-
     margin: 0;
 }
 
 .menu-list li {
     position: relative;
-
     padding: 9px 0 9px 22px;
-
     border-bottom: 1px solid #eee;
-
     font-size: 15px;
-
     line-height: 1.5;
 }
 
@@ -825,23 +691,16 @@ a {
 
 .menu-list li::before {
     content: "•";
-
     position: absolute;
-
     left: 0;
-
     top: 7px;
-
     font-size: 20px;
-
     font-weight: bold;
 }
 
 .menu-detail {
     display: block;
-
     font-size: 13px;
-
     margin-top: 2px;
 }
 
@@ -850,7 +709,6 @@ a {
 
 .menu-middle-column {
     display: flex;
-
     flex-direction: column;
 }
 
@@ -876,13 +734,9 @@ a {
 
 .menu-intro {
     padding: 0 30px;
-
     margin: 5px 0;
-
     text-align: center;
-
     font-size: 14px;
-
     line-height: 1.6;
 }
 
@@ -891,15 +745,11 @@ a {
 
 .menu-order {
     margin-top: 45px;
-
     padding: 32px 40px;
-
     border-radius: 14px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
     gap: 30px;
@@ -919,11 +769,8 @@ a {
     display: inline-block;
 
     font-size: 12px;
-
     font-weight: 700;
-
     letter-spacing: 2px;
-
     text-transform: uppercase;
 
     margin-bottom: 8px;
@@ -931,19 +778,14 @@ a {
 
 .menu-order-content h3 {
     margin: 0 0 8px;
-
     font-size: 26px;
-
     font-weight: 700;
 }
 
 .menu-order-content p {
     margin: 0;
-
     max-width: 700px;
-
     font-size: 15px;
-
     line-height: 1.7;
 }
 
@@ -958,13 +800,11 @@ a {
     padding: 13px 22px;
 
     background: #d4a017;
-
     color: #fff;
 
     border-radius: 6px;
 
     font-size: 14px;
-
     font-weight: 600;
 
     white-space: nowrap;
@@ -974,7 +814,6 @@ a {
 
 .menu-order-btn:hover {
     background: #b8860b;
-
     transform: translateY(-2px);
 }
 
@@ -1021,13 +860,11 @@ a {
         url("images/food.jpg");
 
     background-size: cover;
-
     background-position: center;
 }
 
 .cta h2 {
     font-size: 40px;
-
     margin-bottom: 15px;
 }
 
@@ -1036,42 +873,223 @@ a {
 }
 
 
-/* =========================================
+/* =========================================================
    GALLERY
-========================================= */
+   DESKTOP = 2 COLUMNS
+   ALL PHOTOS SHOWN COMPLETELY
+========================================================= */
 
 .gallery {
-    background: white;
+    background: #fff;
 }
 
 .gallery-grid {
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
-    gap: 15px;
+    gap: 20px;
 }
 
+
+/* ================= GALLERY BOX ================= */
+
 .gallery-item {
-    height: 250px;
+    position: relative;
+
+    width: 100%;
+
+    height: 320px;
 
     overflow: hidden;
 
-    border-radius: 7px;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    background: #f1f1f1;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
 }
+
+
+/* =========================================================
+   GALLERY IMAGES
+   IMPORTANT:
+   CONTAIN = SHOW WHOLE PHOTO
+   NO CROPPING
+========================================================= */
 
 .gallery-item img {
     width: 100%;
-
     height: 100%;
 
-    object-fit: cover;
+    object-fit: contain;
 
-    transition: 0.5s;
+    object-position: center center;
+
+    display: block;
+
+    background: #f1f1f1;
+
+    transition: transform 0.5s ease;
 }
 
+
+/* Gentle hover — does NOT crop the photo */
+
 .gallery-item:hover img {
-    transform: scale(1.08);
+    transform: scale(1.03);
+}
+
+
+/* ================= GALLERY TITLE ================= */
+
+.gallery-item h3 {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 15px;
+
+    color: #fff;
+
+    font-size: 17px;
+
+    text-align: center;
+
+    background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, 0.85)
+    );
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   FULLSCREEN IMAGE VIEWER
+========================================================= */
+
+.image-lightbox {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.95);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 60px 30px 40px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+
+    z-index: 9999;
+}
+
+.image-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* ================= LARGE IMAGE ================= */
+
+.image-lightbox img {
+    max-width: 95%;
+
+    max-height: 85vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 5px;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ================= CLOSE BUTTON ================= */
+
+.lightbox-close {
+    position: absolute;
+
+    top: 20px;
+    right: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    color: #fff;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 10000;
+
+    transition: 0.3s;
+}
+
+.lightbox-close:hover {
+    background: #d4a017;
+    transform: rotate(90deg);
+}
+
+
+/* ================= CAPTION ================= */
+
+.lightbox-caption {
+    position: absolute;
+
+    bottom: 20px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 90%;
+
+    text-align: center;
+
+    color: #fff;
+
+    font-size: 16px;
+
+    font-weight: 600;
 }
 
 
@@ -1089,7 +1107,6 @@ a {
 
 .contact-container {
     max-width: 1200px;
-
     margin: 0 auto;
 }
 
@@ -1098,7 +1115,6 @@ a {
 
 .contact-heading {
     text-align: center;
-
     margin-bottom: 55px;
 }
 
@@ -1304,6 +1320,33 @@ a {
 }
 
 
+/* ================= OPENING STATUS ================= */
+
+#opening-status {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+#opening-status.open {
+    background: #e8f8ee;
+    color: #198754;
+}
+
+#opening-status.closed {
+    background: #fdeaea;
+    color: #dc3545;
+}
+
+
 /* ================= GOOGLE MAP ================= */
 
 .map-container {
@@ -1346,6 +1389,8 @@ a {
     width: 100%;
 
     min-height: 430px;
+
+    border: 0;
 }
 
 
@@ -1409,13 +1454,11 @@ a {
 
 .footer-about h2 {
     color: white;
-
     letter-spacing: 2px;
 }
 
 .footer-about p {
     color: #d4a017;
-
     letter-spacing: 2px;
 }
 
@@ -1435,15 +1478,12 @@ a {
 
 .footer-links {
     display: flex;
-
     flex-direction: column;
 }
 
 .footer-links a {
     color: #ccc;
-
     margin-bottom: 8px;
-
     transition: 0.3s;
 }
 
@@ -1453,13 +1493,11 @@ a {
 
 .footer-contact p {
     color: #ccc;
-
     margin-bottom: 10px;
 }
 
 .footer-contact i {
     color: #d4a017;
-
     margin-right: 8px;
 }
 
@@ -1499,14 +1537,14 @@ a {
 }
 
 
-/* TikTok */
+/* ================= TIKTOK ================= */
 
 .social-links a:first-child {
     background: #000;
 }
 
 
-/* Facebook */
+/* ================= FACEBOOK ================= */
 
 .social-links a:last-child {
     background: #1877F2;
@@ -1528,7 +1566,9 @@ a {
 }
 
 
-/* ================= FOOTER BOTTOM ================= */
+/* =========================================================
+   FOOTER BOTTOM
+========================================================= */
 
 .footer-bottom {
     border-top: 1px solid #333;
@@ -1572,6 +1612,12 @@ a {
     z-index: 999;
 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.08);
 }
 
 
@@ -1581,7 +1627,7 @@ a {
 
 @media (max-width: 900px) {
 
-    /* HEADER */
+    /* ================= HEADER ================= */
 
     .navbar {
         position: absolute;
@@ -1617,28 +1663,28 @@ a {
     }
 
 
-    /* ABOUT */
+    /* ================= ABOUT ================= */
 
     .about-container {
         flex-direction: column;
     }
 
 
-    /* FEATURES */
+    /* ================= FEATURES ================= */
 
     .feature-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
 
-    /* SERVICES */
+    /* ================= SERVICES ================= */
 
     .services-grid {
         grid-template-columns: 1fr;
     }
 
 
-    /* MENU */
+    /* ================= MENU ================= */
 
     .menu-layout {
         grid-template-columns: 1fr 1fr;
@@ -1653,7 +1699,30 @@ a {
     }
 
 
-    /* CONTACT */
+    /* =====================================================
+       GALLERY — TABLET
+       TWO COLUMNS
+       COMPLETE PHOTOS
+    ===================================================== */
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .gallery-item {
+        height: 280px;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center center;
+    }
+
+
+    /* ================= CONTACT ================= */
 
     .contact-content {
         grid-template-columns: 1fr;
@@ -1664,7 +1733,7 @@ a {
     }
 
 
-    /* FOOTER */
+    /* ================= FOOTER ================= */
 
     .footer-container {
         grid-template-columns: 1fr 1fr;
@@ -1678,27 +1747,54 @@ a {
 
 @media (max-width: 600px) {
 
-    /* GENERAL */
+    /* ================= GENERAL ================= */
 
     .section {
         padding: 65px 0;
     }
 
 
-    /* ================= HOME SLIDER ================= */
+    /* =====================================================
+       HOME SLIDER
+       COMPLETE IMAGE ON MOBILE
+    ===================================================== */
 
     .home-slider {
         height: 580px;
+        background: #111;
     }
 
-    .slide-content {
-        width: 78%;
+    .slider-container {
+        background: #111;
+    }
 
+    .slide {
+        background: #111;
+    }
+
+    .slide img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+        object-position: center center;
+
+        background: #111;
+    }
+
+
+    /* ================= HOME TEXT ================= */
+
+    .slide-content {
+        width: 90%;
         max-width: 500px;
 
-        padding: 23px 18px;
+        padding: 10px 15px;
 
-        border-radius: 9px;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
     }
 
     .slide-content span {
@@ -1707,6 +1803,10 @@ a {
         letter-spacing: 1.5px;
 
         margin-bottom: 7px;
+
+        text-shadow:
+            0 2px 4px rgba(0, 0, 0, 1),
+            0 4px 10px rgba(0, 0, 0, 0.9);
     }
 
     .slide-content h1,
@@ -1716,6 +1816,11 @@ a {
         line-height: 1.2;
 
         margin-bottom: 10px;
+
+        text-shadow:
+            0 2px 4px rgba(0, 0, 0, 1),
+            0 4px 12px rgba(0, 0, 0, 0.9),
+            0 8px 18px rgba(0, 0, 0, 0.7);
     }
 
     .slide-content p {
@@ -1724,18 +1829,20 @@ a {
         line-height: 1.5;
 
         margin-bottom: 15px;
+
+        text-shadow:
+            0 2px 4px rgba(0, 0, 0, 1),
+            0 4px 10px rgba(0, 0, 0, 0.9);
     }
 
     .slider-btn {
         padding: 9px 15px;
-
         font-size: 12px;
     }
 
     .slider-arrow {
         width: 38px;
         height: 38px;
-
         font-size: 13px;
     }
 
@@ -1782,7 +1889,6 @@ a {
 
     .menu-layout {
         grid-template-columns: 1fr;
-
         gap: 20px;
     }
 
@@ -1800,7 +1906,6 @@ a {
 
     .menu-list {
         padding-left: 25px;
-
         padding-right: 25px;
     }
 
@@ -1824,8 +1929,62 @@ a {
 
     .menu-order-btn {
         width: 100%;
-
         justify-content: center;
+    }
+
+
+    /* =====================================================
+       GALLERY — MOBILE
+       ONE COLUMN
+       COMPLETE PHOTOS
+    ===================================================== */
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .gallery-item {
+        height: 300px;
+
+        background: #f1f1f1;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+        object-position: center center;
+
+        background: #f1f1f1;
+    }
+
+
+    /* ================= LIGHTBOX ================= */
+
+    .image-lightbox {
+        padding: 50px 15px 50px;
+    }
+
+    .image-lightbox img {
+        max-width: 100%;
+        max-height: 80vh;
+    }
+
+    .lightbox-close {
+        top: 15px;
+        right: 15px;
+
+        width: 40px;
+        height: 40px;
+
+        font-size: 19px;
+    }
+
+    .lightbox-caption {
+        bottom: 15px;
+        font-size: 14px;
     }
 
 
@@ -1902,7 +2061,6 @@ a {
 
     .whatsapp-button {
         right: 18px;
-
         bottom: 18px;
 
         width: 52px;
@@ -1919,14 +2077,26 @@ a {
 
 @media (max-width: 400px) {
 
+    /* ================= HOME ================= */
+
     .home-slider {
         height: 550px;
+        background: #111;
+    }
+
+    .slide img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+        object-position: center center;
+
+        background: #111;
     }
 
     .slide-content {
-        width: 80%;
-
-        padding: 20px 15px;
+        width: 90%;
+        padding: 10px 12px;
     }
 
     .slide-content h1,
@@ -1946,4 +2116,22 @@ a {
         width: 34px;
         height: 34px;
     }
+
+
+    /* ================= GALLERY ================= */
+
+    .gallery-item {
+        height: 280px;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+        object-position: center center;
+
+        background: #f1f1f1;
+    }
 }
+
