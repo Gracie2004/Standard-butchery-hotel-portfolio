@@ -34,6 +34,89 @@ navLinks.forEach(function (link) {
 
 });
 
+// =========================================================
+// GALLERY FULLSCREEN IMAGE VIEWER
+// =========================================================
+
+const galleryImages = document.querySelectorAll(".gallery-item img");
+const imageLightbox = document.getElementById("imageLightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxCaption = document.getElementById("lightboxCaption");
+const lightboxClose = document.getElementById("lightboxClose");
+
+galleryImages.forEach(function (image) {
+
+    image.addEventListener("click", function () {
+
+        lightboxImage.src = image.src;
+
+        lightboxImage.alt = image.alt;
+
+        const galleryItem = image.closest(".gallery-item");
+        const title = galleryItem.querySelector("h3");
+
+        if (title) {
+            lightboxCaption.textContent = title.textContent;
+        } else {
+            lightboxCaption.textContent = image.alt;
+        }
+
+        imageLightbox.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+    });
+
+});
+
+
+/* CLOSE BUTTON */
+
+if (lightboxClose) {
+
+    lightboxClose.addEventListener("click", function () {
+
+        imageLightbox.classList.remove("active");
+
+        document.body.style.overflow = "";
+    });
+
+}
+
+
+/* CLOSE WHEN CLICKING OUTSIDE IMAGE */
+
+if (imageLightbox) {
+
+    imageLightbox.addEventListener("click", function (event) {
+
+        if (event.target === imageLightbox) {
+
+            imageLightbox.classList.remove("active");
+
+            document.body.style.overflow = "";
+        }
+
+    });
+
+}
+
+
+/* CLOSE WITH ESCAPE KEY */
+
+document.addEventListener("keydown", function (event) {
+
+    if (event.key === "Escape") {
+
+        if (imageLightbox) {
+
+            imageLightbox.classList.remove("active");
+
+            document.body.style.overflow = "";
+        }
+
+    }
+
+});
 
 // ========================================
 // HOME IMAGE SLIDER
@@ -229,3 +312,54 @@ if (year) {
     year.textContent = new Date().getFullYear();
 
 }
+
+// =========================================================
+// OPENING HOURS
+// =========================================================
+
+function updateOpeningStatus() {
+
+    const openingStatus = document.getElementById("opening-status");
+
+    if (!openingStatus) {
+        return;
+    }
+
+    // Get current Kenya time
+    const now = new Date();
+
+    const kenyaTime = new Date(
+        now.toLocaleString("en-US", {
+            timeZone: "Africa/Nairobi"
+        })
+    );
+
+    const hours = kenyaTime.getHours();
+    const minutes = kenyaTime.getMinutes();
+
+    const currentMinutes = (hours * 60) + minutes;
+
+    // Opening and closing times
+    const openingTime = (6 * 60) + 30;  // 6:30 AM
+    const closingTime = 23 * 60;        // 11:00 PM
+
+    // Open every day, Monday to Sunday
+    const isOpen =
+        currentMinutes >= openingTime &&
+        currentMinutes < closingTime;
+
+    if (isOpen) {
+        openingStatus.textContent = "Open Now";
+        openingStatus.classList.remove("closed");
+        openingStatus.classList.add("open");
+    } else {
+        openingStatus.textContent = "Closed";
+        openingStatus.classList.remove("open");
+        openingStatus.classList.add("closed");
+    }
+}
+
+updateOpeningStatus();
+
+// Update the status every minute
+setInterval(updateOpeningStatus, 60000);
