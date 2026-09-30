@@ -964,11 +964,31 @@
                         alt="Food">
                 </div>
 
+                <div class="gallery-item">
+                    <img src="images.butcher-at-work.jpg"
+                        alt="Butcher at Work">
+                </div>
+
             </div>
 
         </div>
 
     </section>
+
+
+<!-- FULLSCREEN IMAGE VIEWER -->
+
+<div class="image-lightbox" id="imageLightbox">
+
+    <button class="lightbox-close" id="lightboxClose">
+        <i class="fas fa-times"></i>
+    </button>
+
+    <img id="lightboxImage" src="" alt="">
+
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+
+</div>
 
 
 <!-- ================= CONTACT US SECTION ================= -->
@@ -1079,7 +1099,6 @@
 
                 <!-- OPENING HOURS -->
                 <div class="contact-card">
-
                     <div class="contact-icon hours-icon">
                         <i class="fas fa-clock"></i>
                     </div>
@@ -1088,16 +1107,13 @@
                         <h3>Opening Hours</h3>
 
                         <p>
-                            Monday – Sunday<br>
-                            Open daily 6:30 am - 11:00 pm
+                            Monday – Sunday: 6:30 AM – 11:00 PM
                         </p>
 
-                        <span class="action-link">
-                            <i class="fas fa-clock"></i>
-                            We're Open
+                        <span id="opening-status" class="open">
+                            Checking...
                         </span>
                     </div>
-
                 </div>
 
             </div>
